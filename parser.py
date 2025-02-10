@@ -18,6 +18,7 @@ def get_products(df):
     result = []
     # Проверяем, что DataFrame содержит колонку "Товар"
     if "Товар" in df.columns:
+        #удаляем последнюю лишнюю строку с доставкой
         df = df[~df["Товар"].str.contains("Доставка", case=False, na=False)]
         # Преобразуем DataFrame в список списков для вывода с помощью tabulate
         table_data = df[["Товар", "Цена", "Кол-во"]].values.tolist()
